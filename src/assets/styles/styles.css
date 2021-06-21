@@ -1,0 +1,59 @@
+@font-face {
+  src: url("../fonts/utopia/UtopiaStd-BlackHeadline.otf");
+  font-family: utopia;
+}
+@font-face {
+  src: url("../fonts/rebond/ESRebondGrotesqueTRIAL-Bold.otf");
+  src: url("../fonts/rebond/ESRebondGrotesqueTRIAL-Light.otf");
+  src: url("../fonts/rebond/ESRebondGrotesqueTRIAL-Regular.otf");
+  src: url("../fonts/rebond/ESRebondGrotesqueTRIAL-Semibold.otf");
+  font-family: Rebond;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e7e7e7;
+  text-align: center;
+  font-family: Rebond;
+}
+header {
+  margin: 20px;
+}
+header h1 {
+  font-family: utopia;
+}
+
+#searchBar {
+  background-color: #e7e7e7;
+  width: 500px;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+#container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.coinBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  width: 50%;
+  margin: 5px;
+  padding: 10px;
+}
+.textBox {
+  display: flex;
+  align-items: center;
+}
