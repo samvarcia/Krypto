@@ -14,45 +14,58 @@ const searchBar = document.querySelector("#searchBar");
 const searchCryptos = (cryptos) => {
   searchBar.addEventListener( 'keyup', (e) => {
     const target = e.target.value.toLowerCase()
-
     const filteredCryptos = cryptos.data.filter(crypto => {
       return crypto.name.toLowerCase().includes(target)
     })
-
-    // displayCryptos(filteredCryptos)
-    console.log(filteredCryptos)
+    displayedFromSearchCryptos(filteredCryptos)
   })
+
 }
 async function getCryptos() {
   try {
     const response = await fetch('https://api.coinlore.net/api/tickers/')
     let cryptoList = await response.json()
-    // console.log(cryptoList)
-    displayCryptos(cryptoList)
+    
     searchCryptos(cryptoList)
+    displayCryptos(cryptoList)
   } catch(err) {
     console.error(err)
   }
 }
 
+const displayedFromSearchCryptos = (cryptos) => {
+  const htmlString = cryptos
+    .map((crypto) => {
+      return `
+        <div class="coinBox">
+          <div class="textBox">
+            <h2 style="margin-right: 5px">${crypto.rank}</h2>
+            <h2>${crypto.name}</h2>
+          </div>
+          <p>${crypto.price_usd}</p>
+        </div>
+      `
+    })
+    .join('')
+    container.innerHTML = htmlString;
+}
+
 
 const displayCryptos = (cryptos) => {
-  // const htmlString = cryptos.data
-  //   .map((crypto) => {
-  //     return `
-  //       <div>
-  //         <h2>${crypto.name}</h2>
-  //       </div>
-  //     `
-  //   })
-  //   .join('')
-  //   container.innerHTML = htmlString;
-  cryptos.data.forEach((item) => {      
-      const title = document.createElement("h2");
-      title.innerText = item.name 
-      container.appendChild(title)
-      // console.log(item.name)
-  })
+  const htmlString = cryptos.data
+    .map((crypto) => {
+      return `
+        <div class="coinBox">
+          <div class="textBox">
+            <h2 style="margin-right: 5px">${crypto.rank}</h2>
+            <h2>${crypto.name}</h2>
+          </div>
+          <p>${crypto.price_usd}</p>
+        </div>
+      `
+    })
+    .join('')
+    container.innerHTML = htmlString;
 }
 
 getCryptos()
