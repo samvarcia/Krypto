@@ -4,10 +4,6 @@ const searchBar = document.querySelector("#searchBar");
 
 // EventListener para el searchBar
 
-searchBar.addEventListener("keyup", (e) => {
-  console.log(e.target.value);
-});
-
 // API
 
 window
@@ -39,3 +35,10 @@ window
       container.appendChild(coinBox);
     });
   });
+
+searchBar.addEventListener("keyup", (e) => {
+  console.log(e.target.value);
+  if (e.target.value === item.name) {
+    console.log("GOD");
+  }
+});
