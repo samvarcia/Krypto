@@ -65,7 +65,7 @@ const searchCryptos = (cryptos) => {
       return crypto.name.toLowerCase().includes(target);
     });
     if (target === "") {
-      displayedFromSearchCryptos(separatedCoins1);
+      displayCryptos(cryptos);
     }
     displayedFromSearchCryptos(filteredCryptos);
   });
@@ -100,21 +100,21 @@ const displayedFromSearchCryptos = (cryptos) => {
   container.innerHTML = htmlString;
 };
 
-// const displayCryptos = (cryptos) => {
-//   const htmlString = cryptos.data
-//     .map((crypto) => {
-//       return `
-//         <div class="coinBox">
-//           <div class="textBox">
-//             <h2 style="margin-right: 5px">${crypto.rank}.</h2>
-//             <h2>${crypto.name}</h2>
-//           </div>
-//           <p>${crypto.price_usd}</p>
-//         </div>
-//       `;
-//     })
-//     .join("");
-//   container.innerHTML = htmlString;
-// };
+const displayCryptos = (cryptos) => {
+  const htmlString = cryptos.data
+    .map((crypto) => {
+      return `
+        <div class="coinBox">
+          <div class="textBox">
+            <h2 style="margin-right: 5px">${crypto.rank}.</h2>
+            <h2>${crypto.name}</h2>
+          </div>
+          <p>${crypto.price_usd}</p>
+        </div>
+      `;
+    })
+    .join("");
+  container.innerHTML = htmlString;
+};
 
 getCryptos();

@@ -61,7 +61,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   /* flex-direction: column; */
-  width: 100%;
+  width: auto;
   /* align-items: center; */
 }
 
@@ -76,4 +76,16 @@ header h1 {
   width: 40px;
   margin: 5px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  #searchBar {
+    width: 90%;
+  }
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .coinBox {
+    width: 90%;
+  }
 }
