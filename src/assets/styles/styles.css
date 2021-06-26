@@ -91,7 +91,8 @@ header img {
     width: 90%;
   }
   .buttons {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
   }
   .coinBox {
     width: 90%;
