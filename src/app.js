@@ -87,13 +87,16 @@ const displayedFromSearchCryptos = (cryptos) => {
   const htmlString = cryptos
     .map((crypto) => {
       return `
-        <div class="coinBox">
-          <div class="textBox">
-            <h2 style="margin-right: 5px">${crypto.rank}.</h2>
-            <h2>${crypto.name}</h2>
-          </div>
+      <div class="coinBox">
+        <div class="textBox">
+          <h2 style="margin-right: 5px">${crypto.rank}.</h2>
+          <h2>${crypto.name}</h2>
+        </div>
+        <div class="priceBox">
+          <img src="./src/assets/images/dollar-sign.svg">
           <p>${crypto.price_usd}</p>
         </div>
+      </div>
       `;
     })
     .join("");
@@ -104,13 +107,16 @@ const displayCryptos = (cryptos) => {
   const htmlString = cryptos.data
     .map((crypto) => {
       return `
-        <div class="coinBox">
-          <div class="textBox">
-            <h2 style="margin-right: 5px">${crypto.rank}.</h2>
-            <h2>${crypto.name}</h2>
-          </div>
+      <div class="coinBox">
+        <div class="textBox">
+          <h2 style="margin-right: 5px">${crypto.rank}.</h2>
+          <h2>${crypto.name}</h2>
+        </div>
+        <div class="priceBox">
+          <img src="./src/assets/images/dollar-sign.svg">
           <p>${crypto.price_usd}</p>
         </div>
+      </div>
       `;
     })
     .join("");
